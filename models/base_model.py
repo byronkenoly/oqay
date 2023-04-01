@@ -11,8 +11,6 @@ import  uuid
 
 class BaseModel:
     """
-    Public instance attributes.
-
     Attributes:
         id (str): assign with an uuid when instance is created
                   goal is to have unique id for each BaseModel
@@ -23,6 +21,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """
+        Public instance attributes.
         __init__ is called automatically every time the class is used to create a new object
         """
         if kwargs:
