@@ -21,10 +21,28 @@ class BaseModel:
                                its updated every time you change your object.
     """
 
-    def __init__(self):
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = self.created_at
+    def __init__(self, *args, **kwargs):
+        """
+        __init__ is called automatically every time the class is used to create a new object
+        """
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
+                if key == "created_at" or key == "updated_at":
+                    setattr(self, key, datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                else:
+                    setattr(self, key, value)
+
+            self.id = kwargs.get("id", str(uuid.uuid4()))
+            if not hasattr(self, "created_at"):
+                self.created_at = datetime.datetime.now()
+            if not hasattr(self, "updated_at"):
+                self.updated_at = self.created_at
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = self.created_at
 
     def __str__(self):
         """
