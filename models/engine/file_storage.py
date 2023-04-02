@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3.10
 """
 FileStorage module:
 serializes instances to a JSON file and
@@ -7,6 +7,7 @@ deserializes JSON file to instances
 
 import json
 from os import path
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -44,8 +45,11 @@ class FileStorage:
         1. Python object to serialize
         2. File object where the serialized JSON string will be written to
         """
-        with open(self.__file_path, "w") as f:
-            json.dump(self.__objects, f)
+        json_dict = {}
+        for key, val in self.__objects.items():
+            json_dict[key] = val.to_dict()
+        with open(self.__file_path, "w", encoding="utf-8") as f:
+            json.dump(json_dict, f)
 
     def reload(self):
         """
@@ -53,5 +57,7 @@ class FileStorage:
         otherwise, do nothing. If the file doesn’t exist, no exception should be raised)
         """
         if path.exists(self.__file_path):
-            with open(self.__file_path, "r") as f:
-                self.__objects = json.load(f)
+            with open(self.__file_path, "r", encoding="utf-8") as f:
+                obj_dict = json.load(f)
+                for key, val in obj_dict.items():
+                    self.__objects[key] = eval(val['__class__'])(**val)
