@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3.10
 """
 contains the entry point of the command interpreter
 """
@@ -11,6 +11,12 @@ class OQAYCommand(cmd.Cmd):
     command interpreter
     """
     prompt = '(oqay) '
+
+    def do_create(self, line):
+        """
+        Creates a new instance of BaseModel.
+        saves it (to the JSON file) and prints the id
+        """
 
     def do_quit(self, line):
         """
