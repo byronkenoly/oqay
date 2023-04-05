@@ -1,25 +1,202 @@
-.header-container {
+body {
+    margin: 0;
+    background: hsla(0, 0%, 90%, 0.6);
+    color: #393939;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+}
+
+
+
+/* Styles for screens larger than 60em */
+@media (min-width: 60em){
+    .home_header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        height: 4.375rem;
+        max-width: 100%;
+        /* border-bottom: 1px solid black; */
+    }
+
+    .home_icons {
+        display: flex;
+        /* position: absolute;
+        left: 80%; */
+    }
+}
+
+@media (min-width: 60em){
+    .home_header-container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+.home_title {
+    /* left: 45%;
+    position: absolute; */
+    margin-left: 45%;
+}
+
+.home_icons a {
+    margin-left: 3rem;
+}
+
+.fa {
+    color: #393939;
+    font-size: 1em;
+}
+
+img {
+    max-width: 100%;
+}
+
+@media (min-width: 60em){
+    .home_img {
+        object-fit: cover;
+        width: 100%;
+        height: 80vh;
+    }
+}
+
+article {
+    display: block;
+}
+
+.home_products {
+    padding-top: 0.5rem;   
+}
+
+@media (min-width: 45em){
+    .home_products {
+        margin-top: 0.75rem;
+        padding-right: 2rem;
+        padding-bottom: 11.25rem;
+        padding-left: 2rem;
+    }
+}
+
+.home_subheader {
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 45em){
+    .home_toolbar {
+        -webkit-box-align: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 1.25rem!important;
+    }
+}
+
+.home_count {
     display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    -webkit-box-align: end;
+    align-items: flex-end;
+    grid-column: 1/4;
+    font-weight: 700;
 }
 
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+.home_items_area {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
 
-.icons {
+@media (max-width: 75em){
+    .home_items_area {
+        grid-gap: 15px;
+    }
+
+    .home_product_tile {
+        min-height: fit-content;
+    }
+}
+
+.home_product_tile {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    border: 1px solid #e7dae2;
+    border-radius: 4px;
     display: flex;
-    align-items: center;
-    /*margin-left: auto;*/
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    position: relative;
 }
 
-.icons a {
-    margin-left: 30px;
+.home_product_details {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: start;
+    box-sizing: border-box;
+    /* grid-gap: 0.5rem; */
+    background: #fff;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.5rem; */
+    justify-content: flex-start;
+    padding: 8px 10px 10px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.add_to_cart {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+    background-color: transparent;
+    border: 1px solid #393939;
+    color: #393939;
+    padding: 0 5px;
+    width: 100%;
+    border-radius: 4px;
+    height: 2.5rem;
+    margin-top: .5rem;
+}
+
+.product_name {
+    text-transform: lowercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.product_details {
+    font-size: 0.9rem;
+}
+
+.home_footer_container {
+    display: grid;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 108rem;
+}
+
+@media (min-width: 45em){
+    .home_footer_container {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form label {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 110%;
+    text-transform: lowercase;
 }
