@@ -8,6 +8,9 @@ import shlex
 import models
 from models.base_model import BaseModel
 from datetime import datetime
+from models.product import Product
+from models.review import Review
+from models.user import User
 
 
 class OQAYCommand(cmd.Cmd):
@@ -15,7 +18,7 @@ class OQAYCommand(cmd.Cmd):
     command interpreter
     """
     prompt = '\033[1;35m(oqay)\033[0m '
-    allowed_classes = ['BaseModel']
+    allowed_classes = ['BaseModel', 'Product', 'Review', 'User']
 
     def do_create(self, line):
         """
